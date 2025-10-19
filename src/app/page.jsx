@@ -1,11 +1,16 @@
-import Image from "next/image";
 import Header from "./components/header";
+import LandingPage from "./components/landingpage";
+import ImageCarousel from "./components/carousel";
+import Footer from "./components/foooter";
 
 
 export default function Home() {
   return (
-    <div>
-      <Header />
-    </div>
+    <main>
+      <Header/>
+      <LandingPage/>
+      <ImageCarousel/>
+      <Footer/>
+    </main>
   );
 }
