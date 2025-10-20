@@ -3,6 +3,8 @@
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import axios from "axios";
+
 import {
   Card,
   CardContent,
@@ -35,10 +37,25 @@ export function SignupForm({ className, ...props }) {
   };
 
   // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Signup Data:", form);
-    
+
+    try {
+      // Log form data (optional)
+      console.log("Signup Data:", form);
+
+      // Send POST request to your signup API
+      const response = await axios.post("/api/auth/signup", form);
+
+      // Handle success
+      if (response.status === 200) {
+        console.log("Signup successful:", response.data);
+        // Example: redirect user or show success message
+        // router.push("/login");
+      }
+    } catch (error) {
+      console.error("Signup error:", error.response?.data || error.message);
+    }
   };
 
   return (
