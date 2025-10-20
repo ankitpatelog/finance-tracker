@@ -4,9 +4,9 @@ const transactionSchema = new mongoose.Schema(
   {
     userId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User", // ✅ References your User model
+      ref: "User", // References to User model
       required: [true, "User ID is required"],
-      index: true, // ✅ Index for faster queries
+      index: true, 
     },
 
     type: {
