@@ -1,9 +1,7 @@
-import React from 'react'
-
-const page = () => {
+export default function DashboardPage() {
   return (
-    <div>dashboard page</div>
-  )
+    <div >
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas possimus officia reiciendis adipisci, iure distinctio nam! Molestias ratione accusamus fuga nulla dolores impedit exercitationem tempora temporibus ipsa voluptate qui nesciunt odit libero, dolorum error, itaque id unde quas hic minima culpa soluta deserunt sunt! Magnam neque doloremque iste ipsum perspiciatis, veniam accusamus? Explicabo quam provident est tenetur unde sit ipsum qui accusamus laborum dicta! Asperiores modi voluptatum amet, eos iste quidem sit, dolorem sunt dicta corrupti possimus? Rem facilis corrupti eum dolore, odio fugit ipsa accusamus aliquid minus amet voluptatibus consectetur, assumenda a laudantium omnis quo voluptatum eaque provident qui? Sapiente omnis illo natus. Libero veritatis vitae, minima vero iste quisquam mollitia dolorem amet qui asperiores obcaecati incidunt quis? Tempora laboriosam ipsam minus ipsa voluptates id beatae, pariatur fuga facilis, harum eligendi vitae rerum officia et necessitatibus corporis suscipit. Quos corporis magnam aspernatur mollitia officiis eveniet accusamus incidunt expedita quaerat quam in nam autem delectus tempore ducimus similique ullam nulla vel unde iusto dolor, id ad. Voluptas, quisquam laboriosam aperiam eum molestias harum est neque ipsam alias, ea fugit autem ducimus necessitatibus quam quaerat odit nemo labore nulla magni aut eius corporis? Saepe sunt libero molestiae harum dolorem earum deserunt.
+    </div>
+  );
 }
-
-export default page

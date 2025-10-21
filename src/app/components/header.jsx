@@ -4,17 +4,17 @@ import { useRouter } from "next/navigation";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 export default function Header() {
-  const router = useRouter(); // initialize router
+  const router = useRouter();
 
   const handleSignIn = () => {
-    router.push("/signin"); // navigate to signin page
+    router.push("/signin");
   };
 
   return (
     <nav className="fixed w-full bg-gradient-to-r from-[#A7D8F2] to-[#C1E1F5] shadow-md z-50">
-      <div className="max-w-7xl mx-auto flex justify-between items-center py-3 px-6">
-        {/* Logo */}
-        <div className="flex items-center space-x-2">
+      <div className="max-w-7xl mx-auto flex justify-between items-center py-3 px-6 relative">
+        {/* Logo (shifted left) */}
+        <div className="flex items-center space-x-2 absolute left-0 transform -translate-x-1/2">
           <Image
             src="/logo.svg"
             alt="Logo"
@@ -25,7 +25,7 @@ export default function Header() {
         </div>
 
         {/* Navigation Links */}
-        <div className="hidden md:flex space-x-10 text-slate-700 font-[Inter] font-medium">
+        <div className="hidden md:flex space-x-10 text-slate-700 font-[Inter] font-medium mx-auto">
           {["Home", "About Us", "Contact Us"].map((item, idx) => (
             <a
               key={idx}
@@ -40,7 +40,6 @@ export default function Header() {
 
         {/* Icons & Buttons */}
         <div className="flex items-center space-x-6">
-          {/* Social Icons */}
           <a
             href="https://linkedin.com"
             target="_blank"
@@ -58,7 +57,6 @@ export default function Header() {
             <FaGithub size={28} />
           </a>
 
-          {/* Buttons */}
           <div className="flex space-x-4">
             <button
               onClick={handleSignIn}

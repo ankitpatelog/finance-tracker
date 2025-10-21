@@ -50,10 +50,10 @@ const transactionSchema = new mongoose.Schema(
   }
 );
 
-// ✅ Compound index for efficient queries
+// Compound index for efficient queries
 transactionSchema.index({ userId: 1, date: -1 });
 
-// ✅ Prevent model overwrite during hot reload
+// Prevent model overwrite during hot reload
 const Transaction =
   mongoose.models.Transaction ||
   mongoose.model("Transaction", transactionSchema);
