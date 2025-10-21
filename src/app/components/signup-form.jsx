@@ -2,6 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import axios from "axios";
 
@@ -21,6 +22,12 @@ import {
 import { Input } from "@/components/ui/input";
 
 export function SignupForm({ className, ...props }) {
+  const router = useRouter(); // initialize router
+
+  const handleSignIn = () => {
+    router.push("/login"); // navigate to signin page
+  };
+
   // State for handling form data
   const [form, setForm] = useState({
     name: "",
@@ -64,7 +71,7 @@ export function SignupForm({ className, ...props }) {
         <CardHeader>
           <CardTitle>Create your account</CardTitle>
           <CardDescription>
-            Enter your details below to sign up for an account
+            Enter your details below to sign In for an account
           </CardDescription>
         </CardHeader>
 
@@ -115,8 +122,8 @@ export function SignupForm({ className, ...props }) {
 
               {/* Buttons and Footer */}
               <Field>
-                <Button type="submit" className="w-full">
-                  Sign Up
+                <Button onClick={handleSignIn} type="submit" className="w-full">
+                  sign In
                 </Button>
                 <FieldDescription className="text-center">
                   Already have an account?{" "}
