@@ -119,9 +119,9 @@ export default function Sidenav() {
                   Main Menu
                 </p>
               )}
-             <Link href="/dashboard" >
-              {menuItem("Dashboard", <LayoutDashboard size={20} />)}
-             </Link>
+              <Link href="/dashboard">
+                {menuItem("Dashboard", <LayoutDashboard size={20} />)}
+              </Link>
             </div>
 
             {/* Transactions Section */}
@@ -167,15 +167,18 @@ export default function Sidenav() {
                     transition={{ duration: 0.2 }}
                     className="ml-9 mt-1.5 flex flex-col gap-1"
                   >
-                   <Link href="/dashboard/addtransaction" >
-                    {menuItem("Add Transaction", <PlusCircle size={18} />)}
-                   </Link>
-                   
-                    {menuItem("Update", <Edit3 size={18} />)}
-                   
-                    {menuItem("Delete", <Trash2 size={18} />)}
-                   
-                    {menuItem("View All", <List size={18} />)}
+
+                    
+                    <Link href="/dashboard/addtransaction">
+                      {menuItem("Add Transaction", <PlusCircle size={18} />)}
+                    </Link>
+
+                    <Link href="/dashboard/alltransactions">
+                      {menuItem("All Transactions", <List size={18} />)}
+                    </Link>
+
+
+
                   </motion.div>
                 )}
               </AnimatePresence>
