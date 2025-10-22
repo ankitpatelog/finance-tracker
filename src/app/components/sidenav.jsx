@@ -226,8 +226,14 @@ export default function Sidenav() {
                     className="ml-9 mt-1.5 flex flex-col gap-1"
                   >
                     {menuItem("Spending Graphs", <LineChart size={18} />)}
+
+                   <Link href="/dashboard/categoryoverview">
                     {menuItem("Category Overview", <FileText size={18} />)}
+                    </Link>
+
+
                     {menuItem("Goals & Budgets", <Target size={18} />)}
+                    
                   </motion.div>
                 )}
               </AnimatePresence>
