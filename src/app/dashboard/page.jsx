@@ -1,7 +1,65 @@
+import { ChartAreaInteractive } from "../components/charts/ChartAreaInteractive";
+
 export default function DashboardPage() {
-  return (
-    <div >
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas possimus officia reiciendis adipisci, iure distinctio nam! Molestias ratione accusamus fuga nulla dolores impedit exercitationem tempora temporibus ipsa voluptate qui nesciunt odit libero, dolorum error, itaque id unde quas hic minima culpa soluta deserunt sunt! Magnam neque doloremque iste ipsum perspiciatis, veniam accusamus? Explicabo quam provident est tenetur unde sit ipsum qui accusamus laborum dicta! Asperiores modi voluptatum amet, eos iste quidem sit, dolorem sunt dicta corrupti possimus? Rem facilis corrupti eum dolore, odio fugit ipsa accusamus aliquid minus amet voluptatibus consectetur, assumenda a laudantium omnis quo voluptatum eaque provident qui? Sapiente omnis illo natus. Libero veritatis vitae, minima vero iste quisquam mollitia dolorem amet qui asperiores obcaecati incidunt quis? Tempora laboriosam ipsam minus ipsa voluptates id beatae, pariatur fuga facilis, harum eligendi vitae rerum officia et necessitatibus corporis suscipit. Quos corporis magnam aspernatur mollitia officiis eveniet accusamus incidunt expedita quaerat quam in nam autem delectus tempore ducimus similique ullam nulla vel unde iusto dolor, id ad. Voluptas, quisquam laboriosam aperiam eum molestias harum est neque ipsam alias, ea fugit autem ducimus necessitatibus quam quaerat odit nemo labore nulla magni aut eius corporis? Saepe sunt libero molestiae harum dolorem earum deserunt.
+    return (
+        <div
+          className="min-h-screen ml-72 pt-24 p-8 text-[#334155]"
+          style={{
+              background: "#FFFFFF",
+            }}
+          >
+            {/* Page Header */}
+      <h1 className="text-3xl font-semibold mb-8 text-[#42A5F5] border-b-2 border-[#42A5F5] inline-block pb-2">
+        Analytics Overview
+      </h1>
+
+      {/* Charts Grid */}
+      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <ChartAreaInteractive />
+      </div>
     </div>
   );
 }
+
+
+
+
+
+
+
+//  import { ChartAreaInteractive } from "../components/charts/ChartAreaInteractive";
+
+// export default function DashboardPage() {
+//   return (
+//     <div className="min-h-screen ml-72 pt-24 p-8 bg-white text-[#334155]">
+//       {/* 🧭 Header */}
+//       <h1 className="text-3xl font-semibold mb-8 text-[#42A5F5] border-b-2 border-[#42A5F5] inline-block pb-2">
+//         Dashboard Overview
+//       </h1>
+
+//       {/* 💳 Summary Cards */}
+//       <div className="grid gap-6 md:grid-cols-3 mb-8">
+//         <div className="bg-[#E3F2FD] p-6 rounded-xl shadow-md">
+//           <h2 className="text-slate-700 font-semibold">Total Income</h2>
+//           <p className="text-2xl font-bold text-green-500 mt-2">₹25,000</p>
+//         </div>
+//         <div className="bg-[#FFEBEE] p-6 rounded-xl shadow-md">
+//           <h2 className="text-slate-700 font-semibold">Total Expense</h2>
+//           <p className="text-2xl font-bold text-red-500 mt-2">₹12,400</p>
+//         </div>
+//         <div className="bg-[#E8F5E9] p-6 rounded-xl shadow-md">
+//           <h2 className="text-slate-700 font-semibold">Net Balance</h2>
+//           <p className="text-2xl font-bold text-blue-500 mt-2">₹12,600</p>
+//         </div>
+//       </div>
+
+//       {/* 📊 Charts Section */}
+//       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+//         <div className="bg-white p-4 rounded-2xl shadow-md border border-slate-200">
+//           <ChartAreaInteractivee />
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+

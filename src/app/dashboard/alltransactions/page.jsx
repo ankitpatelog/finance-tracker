@@ -22,6 +22,7 @@ export default function ShowTransactions() {
     "Other",
   ];
 
+  // ✅ Fetch transactions
   useEffect(() => {
     const fetchTransactions = async () => {
       try {
@@ -37,15 +38,31 @@ export default function ShowTransactions() {
     fetchTransactions();
   }, []);
 
+  // ✅ Delete handler
+  const handleDelete = async (transId) => {
+    try {
+      await axios.delete(`/api/deletetransaction/${transId}`);
+      toast.success("Transaction deleted successfully");
+
+      // Update UI after delete
+      setTransactions((prev) => prev.filter((tx) => tx._id !== transId));
+    } catch (err) {
+      console.error(err);
+      toast.error("Failed to delete transaction");
+    }
+  };
+
+  // Filter transactions
   const filteredTx =
     selectedCategory === "All"
       ? transactions
       : transactions.filter(
-          (tx) => tx.category.toLowerCase() === selectedCategory.toLowerCase()
+          (tx) =>
+            tx.category.toLowerCase() === selectedCategory.toLowerCase()
         );
-//w-full max-w-2xl mx-auto pt-33 ml-87
+
   return (
-    <div className=" pt-25 ml-70 min-h-screen p-8 bg-white text-slate-700 transition-all">
+    <div className="pt-24 ml-72 min-h-screen p-8 bg-white text-slate-700 transition-all">
       {/* Page Header */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
         <h1 className="text-3xl font-semibold tracking-tight text-[#42A5F5]">
@@ -117,19 +134,13 @@ export default function ShowTransactions() {
                   </p>
                 )}
 
-                {/* Buttons */}
+                {/* Action Buttons */}
                 <div className="flex justify-end gap-2 mt-4">
                   <Button
                     variant="outline"
                     size="sm"
-                    className="border-[#64B5F6] text-[#42A5F5] hover:bg-[#E3F2FD]"
-                  >
-                    Edit
-                  </Button>
-                  <Button
-                    variant="destructive"
-                    size="sm"
-                    className="bg-red-500 hover:bg-red-600 text-white"
+                    onClick={() => handleDelete(tx._id)}
+                    className="border-red-300 text-red-500 hover:bg-red-50"
                   >
                     Delete
                   </Button>

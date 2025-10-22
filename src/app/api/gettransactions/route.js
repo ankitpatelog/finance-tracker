@@ -16,7 +16,7 @@ export async function GET(req) {
     }
 
     //  Get userId from session
-    const userId = session.user.id; // or session.user._id, depending on your auth config
+    const userId = session.user.id;
 
     //  Fetch transactions for this user
     const data = await Transaction.find({ userId });

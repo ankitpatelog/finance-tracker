@@ -1,7 +1,7 @@
 import { getServerSession } from "next-auth/next";
 import { NextResponse } from "next/server";
 import { authOptions } from "@/library/auth";
-import Transaction from "@/models/transactionModel";
+import Transaction from "@/models/transaction";
 import connectToDatabase from "@/library/mongoDb";
 
 export async function DELETE(req, { params }) {
@@ -16,7 +16,7 @@ export async function DELETE(req, { params }) {
 
     const deleted = await Transaction.findOneAndDelete({
       _id: id, // this id is transaction mongoDb _id
-      userId: session.user.id, // this id is form User collection
+      userId: session.user.id, // this id is from User collection
     });
 
     if (!deleted) {
