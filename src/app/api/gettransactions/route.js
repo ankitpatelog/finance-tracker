@@ -4,7 +4,7 @@ import { authOptions } from "@/library/auth";
 import Transaction from "@/models/transaction";
 import connectToDatabase from "@/library/mongoDb";
 
-export async function GET(req) {
+export async function GET() {
   try {
     // Connect to MongoDB
     await connectToDatabase();
