@@ -1,5 +1,6 @@
 "use client";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 export default function Footer() {
   return (
@@ -11,16 +12,29 @@ export default function Footer() {
             CoinTrak
           </h2>
           <p className="text-sm text-gray-400 mt-2 max-w-xs">
-            Track your crypto portfolio effortlessly and stay ahead of the market.
+            Track your daily income and expenses effortlessly — built for smarter money
+            management and financial clarity.
           </p>
         </div>
 
         {/* Social Icons */}
         <div className="flex space-x-6 text-gray-400">
           {[
-            { icon: <FaLinkedin size={24} />, href: "https://linkedin.com", color: "#0077B5" },
-            { icon: <FaGithub size={24} />, href: "https://github.com", color: "#ffffff" },
-            { icon: <FaTwitter size={24} />, href: "https://twitter.com", color: "#1DA1F2" },
+            {
+              icon: <FaLinkedin size={24} />,
+              href: "https://www.linkedin.com/in/ankit-patel-78023238b/",
+              color: "#0077B5",
+            },
+            {
+              icon: <FaGithub size={24} />,
+              href: "https://github.com/ankitpatelog",
+              color: "#ffffff",
+            },
+            {
+              icon: <FaXTwitter size={24} />,
+              href: "https://x.com/ankitpatel_og",
+              color: "#ffffff",
+            },
           ].map((item, i) => (
             <a
               key={i}
@@ -29,9 +43,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="group relative"
             >
-              <span
-                className="absolute inset-0 rounded-full bg-[#64B5F6] opacity-0 group-hover:opacity-20 blur-lg transition-all duration-300"
-              ></span>
+              <span className="absolute inset-0 rounded-full bg-[#64B5F6] opacity-0 group-hover:opacity-20 blur-lg transition-all duration-300"></span>
               <div
                 className="relative text-gray-400 hover:text-white transition-all duration-300 transform hover:scale-110"
                 style={{ color: item.color }}

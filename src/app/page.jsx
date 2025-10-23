@@ -9,7 +9,6 @@ export default function Home() {
     <main>
       <Header/>
       <LandingPage/>
-      <ImageCarousel/>
       <Footer/>
     </main>
   );

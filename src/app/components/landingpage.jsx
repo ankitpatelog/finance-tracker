@@ -39,8 +39,7 @@ export default function LandingPage() {
 
               <div className="flex space-x-3 text-sm md:text-base text-gray-500">
                 <span className="flex items-center">
-                  <span className="mr-1 text-[#42A5F5]">&bull;</span> Free
-                  30-day trial
+                  <span className="mr-1 text-[#42A5F5]">&bull;</span> Track Your Money Now
                 </span>
                 <span className="flex items-center">
                   <span className="mr-1 text-[#42A5F5]">&bull;</span> No credit

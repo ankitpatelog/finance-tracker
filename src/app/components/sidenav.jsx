@@ -1,7 +1,10 @@
 "use client";
 
+// import { authOptions } from "@/library/auth";
+// import { getServerSession } from "next-auth/next";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 
 import {
   LayoutDashboard,
@@ -26,6 +29,33 @@ export default function Sidenav() {
   const [active, setActive] = useState("Dashboard");
   const [showTransactions, setShowTransactions] = useState(false);
   const [showAnalytics, setShowAnalytics] = useState(false);
+
+  //   // Get user email
+  //  const handleemail = async () => {
+  //   const session = await getServerSession(authOptions);
+  //   if (!session) {
+  //     return "User";
+  //   }
+  //   return session.user.email;
+  // };
+
+  // // Get user name
+  //  const handlename = async () => {
+  //   const session = await getServerSession(authOptions);
+  //   if (!session) {
+  //     return "username";
+  //   }
+  //   return session.user.name;
+  // };
+
+
+  // ✅ Get session (name + email)
+  const { data: session } = useSession();
+  const username = session?.user?.name || "User";
+  const useremail = session?.user?.email || "user@email.com";
+
+const firstletter = username.toString().charAt(0);
+
 
   const menuItem = (name, icon, onClick = () => {}) => (
     <motion.div
@@ -70,7 +100,7 @@ export default function Sidenav() {
       <motion.aside
         animate={{ width: collapsed ? "80px" : "280px" }}
         transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-        className="fixed left-0 top-18 h-screen flex flex-col
+        className="fixed left-0 top-20 h-screen flex flex-col
         bg-white border-r border-slate-200 shadow-sm z-50"
       >
         {/* Profile Section with Collapse Button */}
@@ -81,7 +111,7 @@ export default function Sidenav() {
               className="w-11 h-11 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 
               text-white flex items-center justify-center font-semibold text-lg shadow-md"
             >
-              U
+              {firstletter}
             </motion.div>
             {!collapsed && (
               <motion.div
@@ -90,23 +120,14 @@ export default function Sidenav() {
                 transition={{ duration: 0.2 }}
                 className="flex flex-col"
               >
-                <p className="font-semibold text-slate-800 text-sm">John Doe</p>
-                <p className="text-xs text-slate-500">john@example.com</p>
+                <p className="font-semibold text-slate-800 text-sm">
+                  {username}
+                </p>
+                <p className="text-xs text-slate-500">{useremail}</p>
               </motion.div>
             )}
           </div>
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            onClick={() => setCollapsed(!collapsed)}
-            className="p-2 rounded-lg hover:bg-slate-100 transition-colors ml-auto"
-          >
-            {collapsed ? (
-              <ChevronRight className="text-slate-600" size={20} />
-            ) : (
-              <ChevronLeft className="text-slate-600" size={20} />
-            )}
-          </motion.button>
+          
         </div>
 
         {/* Navigation */}
@@ -167,8 +188,6 @@ export default function Sidenav() {
                     transition={{ duration: 0.2 }}
                     className="ml-9 mt-1.5 flex flex-col gap-1"
                   >
-
-                    
                     <Link href="/dashboard/addtransaction">
                       {menuItem("Add Transaction", <PlusCircle size={18} />)}
                     </Link>
@@ -176,9 +195,6 @@ export default function Sidenav() {
                     <Link href="/dashboard/alltransactions">
                       {menuItem("All Transactions", <List size={18} />)}
                     </Link>
-
-
-
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -225,15 +241,13 @@ export default function Sidenav() {
                     transition={{ duration: 0.2 }}
                     className="ml-9 mt-1.5 flex flex-col gap-1"
                   >
-                    {menuItem("Spending Graphs", <LineChart size={18} />)}
-
-                   <Link href="/dashboard/categoryoverview">
-                    {menuItem("Category Overview", <FileText size={18} />)}
+                    <Link href="/dashboard/categoryoverview">
+                      {menuItem("Category Overview", <FileText size={18} />)}
                     </Link>
 
-
-                    {menuItem("Goals & Budgets", <Target size={18} />)}
-                    
+                    <Link href="/dashboard/goalsandbudgets">
+                      {menuItem("Goals & Budgets", <Target size={18} />)}
+                    </Link>
                   </motion.div>
                 )}
               </AnimatePresence>

@@ -72,6 +72,7 @@ export default function SummaryCards() {
   }, []);
 
   return (
+    <div>
     <div className="-ml-7 pt-5 px-8 transition-all duration-300">
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
         {/* 💰 Total Income */}
@@ -140,6 +141,7 @@ export default function SummaryCards() {
           </p>
         </Card>
       </div>
+    </div>
     </div>
   );
 }

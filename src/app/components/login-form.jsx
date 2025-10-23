@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import toast from "react-hot-toast";
+import Link from "next/link";
 
 import {
   Card,
@@ -70,7 +71,7 @@ export function LoginForm({ className, ...props }) {
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card>
         <CardHeader>
-          <CardTitle>Sign in to your account</CardTitle>
+          <CardTitle>Log in to your account</CardTitle>
           <CardDescription>
             Enter your credentials to access your dashboard
           </CardDescription>
@@ -115,7 +116,7 @@ export function LoginForm({ className, ...props }) {
               {/* Submit Button & Footer */}
               <Field>
                 <Button type="submit" className="w-full">
-                  Sign In
+                  Log In
                 </Button>
                 <FieldDescription className="text-center mt-2">
                   Don’t have an account?{" "}
@@ -123,8 +124,12 @@ export function LoginForm({ className, ...props }) {
                     href="/signup"
                     className="text-accent underline hover:no-underline hover:text-accent"
                   >
-                    Sign Up
                   </a>
+                    <Link
+                      href="/signin"
+                    >
+                      Sign In
+                    </Link>
                 </FieldDescription>
               </Field>
             </FieldGroup>

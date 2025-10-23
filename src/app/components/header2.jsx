@@ -3,21 +3,29 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
+import { signOut } from "next-auth/react";
 
-export default function Header() {
+export default function Headerdash() {
   const router = useRouter();
 
-  const handleSignIn = () => router.push("/signin");
-  const handleLogin = () => router.push("/login");
-
   const handleNavigation = (path) => router.push(path);
+  const handleLogout = async () => {
+    try {
+      await signOut({
+        redirect: true,
+        callbackUrl: "/signin",
+      });
+    } catch (error) {
+      console.error("Logout error:", error);
+    }
+  };
 
   return (
     <nav className="fixed w-full bg-gradient-to-r from-[#A7D8F2] to-[#C1E1F5] shadow-md z-50">
       <div className="max-w-7xl mx-auto flex justify-between items-center py-3 px-6">
-        {/* ✅ Left: Clickable Logo */}
+        {/* ✅ Left: Large Logo */}
         <div
-          className="flex items-center cursor-pointer"
+          className="flex items-center space-x-2 cursor-pointer"
           onClick={() => handleNavigation("/")}
         >
           <Image
@@ -48,16 +56,15 @@ export default function Header() {
           </button>
         </div>
 
-        {/* ✅ Right: Social Icons + Auth Buttons */}
+        {/* ✅ Right: Social Icons + Logout */}
         <div className="flex items-center space-x-6">
-          {/* Social Icons */}
           <a
             href="https://www.linkedin.com/in/ankit-patel-78023238b/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-slate-700 hover:text-[#0077B5] transition-all duration-200 transform hover:scale-110"
           >
-            <FaLinkedin size={26} />
+            <FaLinkedin size={28} />
           </a>
 
           <a
@@ -66,25 +73,15 @@ export default function Header() {
             rel="noopener noreferrer"
             className="text-slate-700 hover:text-black transition-all duration-200 transform hover:scale-110"
           >
-            <FaGithub size={26} />
+            <FaGithub size={28} />
           </a>
 
-          {/* Buttons */}
-          <div className="flex space-x-4">
-            <button
-              onClick={handleSignIn}
-              className="bg-[#64B5F6] text-white px-5 py-2.5 rounded-xl font-semibold text-base shadow-md hover:bg-[#42A5F5] transform hover:scale-105 transition-all duration-200"
-            >
-              Sign In
-            </button>
-
-            <button
-              onClick={handleLogin}
-              className="border-2 border-[#64B5F6] text-[#42A5F5] px-5 py-2.5 rounded-xl font-semibold text-base hover:bg-[#E3F2FD] transform hover:scale-105 transition-all duration-200"
-            >
-              Login
-            </button>
-          </div>
+          <button
+            onClick={handleLogout}
+            className="bg-[#64B5F6] text-white px-5 py-2.5 rounded-xl font-semibold text-base shadow-md hover:bg-[#42A5F5] transform hover:scale-105 transition-all duration-200"
+          >
+            LogOut
+          </button>
         </div>
       </div>
     </nav>

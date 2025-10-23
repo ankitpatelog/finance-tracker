@@ -3,6 +3,7 @@
 import React from "react";
 import Headerdash from "../components/header2";
 import { FaLinkedin, FaGithub, FaGlobe, FaEnvelope, FaPhone } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6"; // X (Twitter) icon
 
 export default function ContactPage() {
   return (
@@ -38,13 +39,14 @@ export default function ContactPage() {
             <div className="flex items-center justify-center space-x-3 text-slate-700 text-base">
               <FaPhone className="text-[#42A5F5]" />
               <a href="tel:+919654534175" className="hover:underline">
-                +91 96545 34175
+                +91 9654534175
               </a>
             </div>
           </div>
 
           {/* Social Links */}
           <div className="flex justify-center space-x-10 mb-10">
+            {/* LinkedIn */}
             <a
               href="https://www.linkedin.com/in/ankit-patel-78023238b/"
               target="_blank"
@@ -54,6 +56,7 @@ export default function ContactPage() {
               <FaLinkedin size={38} />
             </a>
 
+            {/* GitHub */}
             <a
               href="https://github.com/ankitpatelog"
               target="_blank"
@@ -63,6 +66,17 @@ export default function ContactPage() {
               <FaGithub size={38} />
             </a>
 
+            {/* X (Twitter) */}
+            <a
+              href="https://x.com/ankitpatel_og"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-700 hover:text-black transition-all duration-200 transform hover:scale-110"
+            >
+              <FaXTwitter size={38} />
+            </a>
+
+            {/* Portfolio */}
             <a
               href="#"
               className="text-slate-700 hover:text-[#42A5F5] transition-all duration-200 transform hover:scale-110 cursor-not-allowed"

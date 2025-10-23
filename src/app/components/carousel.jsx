@@ -5,7 +5,7 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 export default function ImageCarousel() {
   const images = [
-    "/images/img1.jpg",
+    "/gif/first.gif",
     "/images/img2.jpg",
     "/images/img3.jpg",
     "/images/img4.jpg",
